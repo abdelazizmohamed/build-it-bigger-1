@@ -13,7 +13,6 @@ Project website: <https://www.udacity.com/course/viewer#!/c-nd801/l-4295208853/m
 - Project contains a Google Cloud Endpoints module that supplies jokes from the Java library. Project loads jokes from GCE module via an async task.
 - Project contains connected tests to verify that the async task is indeed loading jokes.
 - Project contains paid/free flavors. The paid flavor has no ads, and no unnecessary dependencies.
-Required Behavior
 - App retrieves jokes from Google Cloud Endpoints module and displays them via an Activity from the Android Library.
 - App conforms to common standards found in the Android Nanodegree General Project Guidelines
 
