@@ -31,8 +31,10 @@ proguard-project.txt
 build/**
 JokeTeller/build/**
 JokeTeller/.idea/**
+backend/build/**
 .idea/**
 import-summary.txt
+gradle.properties
 
 *.pydevproject
 .project

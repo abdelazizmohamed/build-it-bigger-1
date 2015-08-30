@@ -11,9 +11,10 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".JokeTellerActivity"
-            android:label="@string/title_activity_joke_teller">
+            android:label="@string/title_activity_joke_teller" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
