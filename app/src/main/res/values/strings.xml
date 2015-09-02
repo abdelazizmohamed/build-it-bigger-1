@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Joke Teller</string>
-    <string name="title_activity_joke_teller">JokeTellerActivity</string>
+    <string name="title_activity_joke_teller">Joke Teller</string>
     <string name="action_settings">Settings</string>
     <string name="joke_button_text">Tell a Joke</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="main_background">The bear.</string>
+    <string name="hello_world">Hello, world</string>
 </resources>

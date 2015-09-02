@@ -20,8 +20,6 @@ public class JokeTellerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View mRootView = inflater.inflate(R.layout.fragment_joke_teller, container, false);
-        TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
-        titleView.setText("Hippy");
         return mRootView;
     }
 }

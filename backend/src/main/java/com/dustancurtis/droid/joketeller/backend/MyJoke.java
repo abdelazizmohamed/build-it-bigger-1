@@ -3,15 +3,15 @@ package com.dustancurtis.droid.joketeller.backend;
 /**
  * The object model for the data we are sending through endpoints
  */
-public class MyBean {
+public class MyJoke {
 
-    private String myData;
+    private String myJoke;
 
     public String getData() {
-        return myData;
+        return myJoke;
     }
 
     public void setData(String data) {
-        myData = data;
+        myJoke = data;
     }
 }
