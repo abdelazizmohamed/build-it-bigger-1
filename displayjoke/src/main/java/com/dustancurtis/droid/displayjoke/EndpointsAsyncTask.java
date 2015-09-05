@@ -3,6 +3,7 @@ package com.dustancurtis.droid.displayjoke;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
 
@@ -21,7 +22,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
-        if(myApiService == null) {  // Only do this once
+        if (myApiService == null) {  // Only do this once
             // Prod Server Settings:
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
                     .setRootUrl("https://jokes-1013.appspot.com/_ah/api/");
@@ -41,7 +42,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
         }
 
         context = params[0].first;
-        String name = params[0].second;
+        Log.d("$$$", params[0].second);
 
         try {
             return myApiService.getJoke().execute().getData();
@@ -52,6 +53,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     @Override
     protected void onPostExecute(String result) {
+        Log.d("$$$", result);
         // Launch intent to joke display activity.
         Intent intent = new Intent(context, DisplayJokeActivity.class);
         // Indicate data to display.

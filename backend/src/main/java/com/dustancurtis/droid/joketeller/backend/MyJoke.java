@@ -5,7 +5,7 @@ package com.dustancurtis.droid.joketeller.backend;
  */
 public class MyJoke {
 
-    private String myJoke;
+    private String myJoke = "This is a joke.";
 
     public String getData() {
         return myJoke;
