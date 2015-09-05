@@ -1,22 +1,48 @@
-package com.dustancurtis.droid.joketeller;
+package joketeller;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.dustancurtis.droid.joketeller.R;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
+import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 
 public class JokeTellerActivity extends AppCompatActivity {
+
+    private PublisherInterstitialAd pia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joke_teller);
+
+        // Interstitial ad according to: https://developers.google.com/mobile-ads-sdk/docs/dfp/android/interstitial
+        pia = new PublisherInterstitialAd(this);
+        pia.setAdUnitId(getString(R.string.ad_unit_id));
+
+        pia.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+
+                requestNewInterstitial();
+                showJoke();
+            }
+        });
+
+        requestNewInterstitial();
+
     }
 
+    private void requestNewInterstitial() {
+        PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
+                .addTestDevice(getString(R.string.ad_mob_device_id))
+                .build();
+
+        pia.loadAd(adRequest);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -38,5 +64,9 @@ public class JokeTellerActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showJoke() {
+
     }
 }

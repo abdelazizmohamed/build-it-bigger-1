@@ -1,12 +1,20 @@
 package com.dustancurtis.droid.displayjoke;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
-public class DisplayJokeActivity extends ActionBarActivity {
+public class DisplayJokeActivity extends AppCompatActivity {
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,4 +44,29 @@ public class DisplayJokeActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        registerReceiver(br,
+                new IntentFilter(Intent.ACTION_VIEW));
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(br);
+    }
+
+    private BroadcastReceiver br = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // If new data to display.
+            if (intent.getAction().equals(Intent.ACTION_VIEW)) {
+                // Update the data.
+                Toast.makeText(context, "TESTING", Toast.LENGTH_SHORT);
+            }
+        }
+    };
 }
