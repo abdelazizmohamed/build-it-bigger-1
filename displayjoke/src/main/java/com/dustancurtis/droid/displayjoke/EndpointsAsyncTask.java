@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.util.Pair;
-import android.widget.Toast;
 
 import com.dustancurtis.droid.displayjoke.DisplayJokeActivity;
 import com.dustancurtis.droid.joketeller.backend.myApi.MyApi;
@@ -16,12 +14,16 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
 
-class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
 
+    public EndpointsAsyncTask(Context context) {
+        this.context = context;
+    }
+
     @Override
-    protected String doInBackground(Pair<Context, String>... params) {
+    protected String doInBackground(Void... params) {
         if (myApiService == null) {  // Only do this once
             // Prod Server Settings:
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
@@ -41,11 +43,8 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
             myApiService = builder.build();
         }
 
-        context = params[0].first;
-        Log.d("$$$", params[0].second);
-
         try {
-            return myApiService.getJoke().execute().getData();
+            return myApiService.getJoke().execute().getMyJoke();
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -53,6 +52,8 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     @Override
     protected void onPostExecute(String result) {
+        super.onPostExecute(result);
+
         Log.d("$$$", result);
         // Launch intent to joke display activity.
         Intent intent = new Intent(context, DisplayJokeActivity.class);

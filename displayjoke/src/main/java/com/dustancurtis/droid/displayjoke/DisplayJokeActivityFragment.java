@@ -60,8 +60,8 @@ public class DisplayJokeActivityFragment extends Fragment {
             public void onClick(View view) {
                 button.setVisibility(View.GONE);
                 // 1. Retrieve joke from backend using async task.
-                EndpointsAsyncTask as = (EndpointsAsyncTask) new EndpointsAsyncTask()
-                        .execute(new Pair<Context, String>(getActivity(), ""));
+                EndpointsAsyncTask as = (EndpointsAsyncTask) new EndpointsAsyncTask(rootView.getContext())
+                        .execute();
                 // 2. Clear existing joke, display load indicator while waiting.
                 jokeTextHolder.setVisibility(View.GONE);
                 spinner.setVisibility(View.VISIBLE);
