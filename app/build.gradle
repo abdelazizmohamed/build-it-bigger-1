@@ -5,9 +5,9 @@ android {
         try {
             config {
                 keyAlias 'MyAndroidKey'
-                keyPassword KEY_PASSWORD
+                keyPassword '12345678'
                 storeFile file('/Users/curt/Desktop/android.jks')
-                storePassword KEYSTORE_PASSWORD
+                storePassword '12345678'
             }
         } catch (ex) {
             throw new InvalidUserDataException("You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties.")
@@ -15,7 +15,7 @@ android {
     }
 
     compileSdkVersion 23
-    buildToolsVersion "23.0.0"
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.dustancurtis.droid.joketeller"
@@ -46,8 +46,8 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(":displayjoke")
-    freeCompile 'com.google.android.gms:play-services-ads:7.8.0'
-    compile 'com.android.support:appcompat-v7:23.0.0'
-    compile 'com.android.support:design:23.0.0'
+    freeCompile 'com.google.android.gms:play-services-ads:8.4.0'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
     compile project(path: ':backend', configuration: 'android-endpoints')
 }
