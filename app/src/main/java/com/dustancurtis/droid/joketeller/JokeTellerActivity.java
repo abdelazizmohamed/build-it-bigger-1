@@ -1,5 +1,6 @@
 package com.dustancurtis.droid.joketeller;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.dustancurtis.droid.displayjoke.DisplayJokeActivityFragment;
 import com.dustancurtis.droid.joketeller.R;
 
 public class JokeTellerActivity extends AppCompatActivity {
@@ -15,6 +17,12 @@ public class JokeTellerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joke_teller);
+
+        DisplayJokeActivityFragment displayFragment = DisplayJokeActivityFragment.newInstance("This is a Joke");
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.display_joke_fragment, displayFragment);
+        ft.commit();
     }
 
 
