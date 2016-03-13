@@ -4,22 +4,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.AsyncTask;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.net.URL;
-
-import static android.widget.Toast.LENGTH_LONG;
 
 public class DisplayJokeActivityFragment extends Fragment {
 
@@ -27,6 +26,8 @@ public class DisplayJokeActivityFragment extends Fragment {
     private String jokeText;
     private TextView jokeTextHolder;
     private ProgressBar spinner;
+    private Toolbar toolbar;
+    private CollapsingToolbarLayout cToolbar;
     public static final String JOKE_TEXT = "JOKE_TEXT";
 
     public DisplayJokeActivityFragment() {
@@ -54,6 +55,8 @@ public class DisplayJokeActivityFragment extends Fragment {
         jokeTextHolder = (TextView)rootView.findViewById(R.id.sample_text);
         button = (FloatingActionButton)rootView.findViewById(R.id.get_joke_fab);
         spinner = (ProgressBar) rootView.findViewById(R.id.pbSpinner);
+        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        cToolbar = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsingToolbarLayout);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

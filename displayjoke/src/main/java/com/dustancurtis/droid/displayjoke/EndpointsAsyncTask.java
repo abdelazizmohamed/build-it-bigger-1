@@ -5,12 +5,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.dustancurtis.droid.displayjoke.DisplayJokeActivity;
 import com.dustancurtis.droid.joketeller.backend.myApi.MyApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
-import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
-import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
 

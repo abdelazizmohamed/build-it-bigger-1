@@ -13,18 +13,11 @@
             android:id="@+id/collapsingToolbarLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:title="Testing"
+            android:text="Testing"
+            android:color="@color/white"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-            <ImageView
-                android:id="@+id/mainBackground"
-                android:src="@drawable/bear"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax"
-                app:layout_collapseParallaxMultiplier="0.7"
-                android:contentDescription="@string/main_background" />
 
             <include
                 android:id="@+id/toolbar"

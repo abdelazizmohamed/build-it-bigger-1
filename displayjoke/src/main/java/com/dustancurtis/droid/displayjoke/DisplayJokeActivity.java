@@ -65,7 +65,7 @@ public class DisplayJokeActivity extends AppCompatActivity {
             // If new data to display.
             if (intent.getAction().equals(Intent.ACTION_VIEW)) {
                 // Update the data.
-                Toast.makeText(context, "TESTING", Toast.LENGTH_SHORT);
+                Toast.makeText(context, "TESTING", Toast.LENGTH_SHORT).show();
             }
         }
     };
